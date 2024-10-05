@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Proposal</title>
+</head>
+<body>
+    <h1>Introduction/Background</h1>
+    <p>
+        Predicting house prices is critical to the real estate industry, as it provides valuable insight for buyers, sellers, and even investors. Since we have access to housing data, we want to build a model that takes into account various home characteristics, such as square footage and home type, for accurate and reliable home price predictions.
+    </p>
+    <p>
+        Studies such as by Kok et al. (2017) utilized a linear regression model to predict home prices with features including house size, number of rooms, and location. The model was proven accurate based on the given training dataset, and the results were easy to interpret.
+    </p>
+    <p>
+        We will be using the Ames Housing Dataset, an alternative to the popular Boston Dataset found in James et al. (2018), but with more features and observations. This dataset can be found at the following link: 
+        <a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data?select=data_description.txt" target="_blank">Ames Housing Dataset</a>
+    </p>
+
+    <h1>Problem Definition</h1>
+    <h2>Problem</h2>
+    <p>
+        The problem we are addressing is the challenge of accurately predicting house prices located in Ames, Iowa. Traditional methods often rely on simple models or manual predictions which don’t capture the more complex relationships between predictive variables. This leads buyers, sellers, and investors to make suboptimal decisions because of a lack of accurate information.
+    </p>
+
+    <h2>Motivation</h2>
+    <p>
+        By accurately automating house price prediction, it would help homebuyers, sellers, real estate agents, and investors make informed decisions.
+    </p>
+
+    <h1>Methods</h1>
+    <h2>Data preprocessing methods</h2>
+
+    <h3>Handling missing data</h3>
+    <p>
+        To ensure that we don’t have any missing values, we’ll use an imputation technique where we replace the missing value with the mean or median. We can implement this using <code>sklearn.impute.SimpleImputer()</code>.
+    </p>
+
+    <h3>Feature Scaling</h3>
+    <p>
+        Certain features such as house size or lot area can vary a lot in scale, and this can affect models specifically for linear regression. Hence, we’ll apply standardization using <code>StandardScaler()</code> from scikit-learn.
+    </p>
+
+    <h3>Log-scaling Target Price</h3>
+    <p>
+        We understand that there will be a heteroskedasticity problem with the dataset. When true home prices increase, we expect model error to increase as well. By performing a log transform on our target home prices, we can consider error in a more relative sense, removing the problem of overweighting observations with large true prices and underweighting others (Manning 1998).
+    </p>
+
+    <h2>Models</h2>
+    <p>
+        We will try out several different regression models and compare their accuracy. Some of the models we initially plan to use are listed below, although we may try more throughout the duration of the project:
+    </p>
+    <ul>
+        <li>Feed-forward neural network</li>
+        <li>LASSO regression</li>
+        <li>XGBoost</li>
+    </ul>
+
+    <h1>Results and Expectations</h1>
+    <p>
+        The quantitative metrics we hope to fulfill by the end of this project are:
+    </p>
+    <ul>
+        <li>Achieve a <code>sklearn.metrics.r2_score</code> of > 0.85</li>
+        <li>Reduce the <code>sklearn.metrics.mean_squared_error</code> to < $20,000</li>
+        <li>Achieve a <code>sklearn.metrics.mean_absolute_percentage_error</code> of < 10%</li>
+    </ul>
+    <p>
+        The goal of this project is to develop an accurate and reliable model that can forecast house prices in Ames, Iowa, using a variety of house characteristics as explanatory variables.
+    </p>
+    <p>
+        As priorly mentioned, accurate price prediction would contribute to helping both buyers and sellers make better decisions by ensuring that properties are priced fairly and competitively. A more efficient real estate market can contribute to more sustainable urban development, as money is allocated more efficiently and responsibly.
+    </p>
+    <p>
+        Based on the prior research outlined, based on similar models, our model is expected to meet or exceed the performance goals. By incorporating a diverse range of features, the linear regression model will be capable of capturing and analyzing key patterns in data.
+    </p>
+
+    <h1>References</h1>
+    <p>
+        Kok, N., Monkkonen, P., & Quigley, J. M. (2014). Land use regulations and the value of land and housing: An intra-metropolitan analysis. Journal of Urban Economics, 81, 136–148.
+    </p>
+    <p>
+        Manning, W. G. (1998). The logged dependent variable, heteroskedasticity, and the retransformation problem. Journal of Health Economics, 17(3), 283–295.
+    </p>
+
+    <h1>Contribution Table</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contribution to the Proposal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lohith Dasari</td>
+                <td>Intro, Problem Definition, Methods</td>
+            </tr>
+            <tr>
+                <td>Kushal Dudipala</td>
+                <td>Introduction, Results and Expectations, Problem Definition, Making the slideshow</td>
+            </tr>
+            <tr>
+                <td>Axel Diaz</td>
+                <td>Background, Methods, Results and Expectations</td>
+            </tr>
+            <tr>
+                <td>Ben DiPrete</td>
+                <td>Problem Research and Selection, Methods</td>
+            </tr>
+            <tr>
+                <td>Miguel Cruz</td>
+                <td>Gantt Chart</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
